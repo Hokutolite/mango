@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mango的 YouTube 頻道官方網站</title>
+    <link rel="icon" type="image/png" href="icon.png">    
+    <style>
+        /*基本設定 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body, html {
+            min-height: 100%;
+            font-family: "Helvetica Neue", Arial, "Noto Sans TC", sans-serif;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 背景圖片半模糊設定 (.png 格式) */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* 圖片已改為同資料夾下的 background.png */
+            background-image: url('background.png'); 
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(10px); /* 模糊度 */
+            background-color: rgba(0, 0, 0, 0.25); /* 稍微壓暗背景 */
+            background-blend-mode: multiply;
+            z-index: -1; 
+            transform: scale(1.1); /* 防止邊緣白邊 */
+        }
+
+        /* 最上方頭貼區塊 */
+        .header-banner {
+            width: 100%;
+            padding: 40px 20px 20px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            /* 頭貼預設讀取同資料夾下的 avatar.png */
+            background-image: url('avatar.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 50%; /* 圓形頭貼 */
+            border: 4px solid #ffdd77;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            margin-bottom: 15px;
+        }
+
+        .channel-title {
+            color: #ffffff;
+            font-size: 2rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+            font-weight: bold;
+        }
+
+        /* 中間內文區塊 (多個區塊撐長網頁) */
+        .main-content {
+            flex: 1;
+            width: 100%;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px 20px 60px 20px;
+        }
+
+        /* 內容圖層卡片 */
+        .section-card {
+            background-color: rgba(255, 255, 255, 0.9); /* 半透明白底 */
+            padding: 35px;
+            border-radius: 16px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+            margin-bottom: 30px; /* 區塊之間的間距 */
+        }
+
+.section-card h2 {
+    font-size: 1.6rem;
+    
+    /* 1. 文字漸層：實踐芒果黃到亮橘色的漸層效果 */
+    background: linear-gradient(135deg, #ffca28, #f58a07);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; /* 必須設為透明，漸層字才會顯現 */
+    
+    margin-bottom: 15px;
+    
+    /* 2. 左側邊框：同步改為芒果亮橘色，讓整體視覺更和諧 */
+    border-left: 5px solid #ff8f00; 
+    padding-left: 10px;
+    
+    /* 💡 補充：可選加上此行，避免漸層字在某些瀏覽器被切到邊緣 */
+    display: inline-block; 
+}
+
+         .section-card h5 {
+            font-size: 1.07rem;
+            line-height: 1.8;
+            color: #e37900;
+            margin-bottom: 15px;
+        }
+        
+        .section-card p {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #333333;
+            margin-bottom: 15px;
+        }
+
+               .section-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 最下面的黑底與網址區塊 (Footer) */
+        footer {
+            background-color: #331801aa; /* 深黑底 */
+            color: #020254aa;
+            text-align: center;
+            padding: 40px 20px;
+            width: 100%;
+            margin-top: auto;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+            color: #aaaaaa;
+            margin-bottom: 20px;
+        }
+
+        /* 4 個網址連結的排版 */
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px; /* 連結之間的間距 */
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .footer-links a {
+            color: #d47202; /* 連結顏色 */
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.05rem;
+            padding: 8px 16px;
+            border: 1px solid #b56100;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #ffffff;
+            background-color: #ff8800;
+            border-color: #ff8800;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 最上方頭貼區塊 -->
+    <header class="header-banner">
+        <div class="avatar"></div>
+        <div class="channel-title">Mango的官網</div>
+    </header>
+
+    <!-- 內文 -->
+    <main class="main-content">
+
+        <!-- 區塊一：關於我 -->
+        <section class="section-card">
+            <h2>關於我</h2>
+            <p>嗨囉大家好我是mango，芒果冰鯊，在這個頻道中我會介紹我玩的遊戲(有人聲🐒)~有bloxd.io、minecraft等..我也會嘗試利用遊戲來介紹歷史、自然、生物等科目(後期)，歡迎各位按讚並訂閱我喔!!</p>
+            <p>🥭(我平常都是週六or周日更新一集，有時中途週三週四也會發XD，但遇到考試或特殊原因我會停更悠~)。</p>
+        </section>
+
+        <!-- 區塊二：主要內容 -->
+        <section class="section-card">
+            <h2>歷程</h2>
+            <p>2025-6月21 國中的我創頻道</p>
+            <p>2025-9月20  訂閱人數100</p>
+        </section>
+
+        <!-- 區塊三：最新公告 -->
+        <section class="section-card">
+            <h2>最新公告</h2>
+            <p>1.目前停更</p>
+            <h5>聯絡方式:Discord:mango_7239</h5>
+        </section>
+
+    </main>
+<!-- 最下面黑底與網址 -->
+    <footer>
+        <p>© 2026 XXXXXXXX官網 版權所有，翻印必究(?)</p>
+        
+        <div class="footer-links">
+            <!-- 連結 1：YouTube 主頻道 -->
+            <a href="https://www.youtube.com/channel/UCYdGRVYFyP3SesMUjZB529w">▶ YouTube 頻道</a>
+
+            <!-- 連結 2：IG -->
+            <a href="https://www.instagram.com/mangobinshark/" target="_blank">⏹ 我的IG</a>
+            
+            <!-- 連結 3：我的DC群 -->
+            <a href="https://discord.com/invite/meXsDYkKJy">💬 我的DC群(Discord)</a>
+
+            <!-- 連結 4：實況主申請合作表單 -->
+            <a href="https://docs.google.com/forms/d/1cfPb5ga_RaXKdjI_gGNu5G4uv4O7pHEpW5c3vdls24Q/viewform?edit_requested=true">🎫 實況主申請合作表單</a>
+
+         </div>
+    </footer>
+
+</body>
+</html>
